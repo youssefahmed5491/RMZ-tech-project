@@ -1,7 +1,7 @@
 @extends('our.ourwelcome')
 @section('content')
     <div class='flex justify-center  pt-20 bg-gradient-to-r from-green-400 to-blue-500 h-screen'>
-        <div class='w-3/12 p-4 rounded-lg bg-gray-200 h-3/5'>
+        <div class='w-3/12 p-4 rounded-lg bg-gray-200 h-5/7'>
             <form action="{{route('ouranimals')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div>
