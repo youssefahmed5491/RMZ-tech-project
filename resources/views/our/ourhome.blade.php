@@ -2,31 +2,33 @@
 @section('content')
     <div class="bg-purple-100 flex justify-between flex-grow pt-16">
         <div>
-            <div class="text-4xl p-6">Adopt DON'T Buy</div>
+            <div id="title" class="text-4xl p-6">Adopt DON'T Buy</div>
             <div class="p-6 pt-40 text-2xl">Find an animal in your area</div>
-            <div class="p-6 flex">
-                <div class="p-4 text-2xl">Location:</div>
-                <input type="text" class="rounded-lg pl-4" placeholder="Search..">
-
-                <div class="p-4 text-2xl">Type:</div>
-                <input type="text" class="rounded-lg pl-4" placeholder="Search..">
-            </div> 
-            <div class="pl-64">
-                    <button type="submit" class="bg-gradient-to-r from-black  hover:from-green-400 hover:to-blue-500 text-white px-4 py-3 rounded font-medium w-44">Search!</button>
-            </div>
+            <form action="{{ route('oursearch') }}" method="post">
+                @csrf
+                <div class="p-6 w-full flex justify-center">
+                    <input name="search" id="homesearch" type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg h-16 " placeholder="search by location or animal type">
+                </div> 
+                <div class="pl-64">
+                        <button id="searchbutton" type="submit" class="bg-gradient-to-r from-black hover:from-green-400 hover:to-blue-500 text-white px-4 py-3 rounded font-medium w-44">Search!</button>
+                </div>
+            </form>
         </div>
         
         <img class="inline w-1/2 pb-32 pt-2" src="images/Selena_Gomez.jpeg" >
         
     </div>
+
     <div class="grid grid-cols-3 divide-x divide-transparent bg-gradient-to-r from-green-400 to-blue-500  p-4 flex justify-center">
         <div class="flex justify-center">
             <div class="divide-y grid grid-cols-1 mx-auto divide-transparent">
                 <div class="text-2xl flex justify-center">Find a pet</div>
                 <img class="inline w-1/2   mx-auto p-4" src="images/dogsearch.jpeg" >
-                <div class="text-center text-xl">
-                    Click Here  
-                </div>
+                <a href="{{route('oursearch')}}" class="p-5 ">
+                    <div class="text-center text-xl">
+                        Click Here   
+                    </div>
+                </a>
                 <div class="text-center text-xl">
                     To find a pet near you that needs you
                 </div>
@@ -36,9 +38,11 @@
             <div class="divide-y grid grid-cols-1 mx-auto divide-transparent">
                 <div class="text-2xl flex justify-center">Upload a pet</div>
                 <img class="inline w-3/4   mx-auto p-4" src="images/adoptapet.jpeg" >
-                <div class="text-center text-xl">
-                    Click Here   
-                </div>
+                <a href="{{route('ouranimals')}}" class="p-5 ">
+                    <div class="text-center text-xl">
+                        Click Here   
+                    </div>
+                </a>
                 <div class="text-center text-xl">
                     To upload a stray animal near you
                 </div>
@@ -48,9 +52,11 @@
             <div class="divide-y grid grid-cols-1 mx-auto divide-transparent">
                 <div class="text-2xl flex justify-center">Accessories</div>
                 <img class="inline w-2/3   mx-auto p-4" src="images/dogcoler.jpeg" >
-                <div class="text-center text-xl">
-                    Click Here   
-                </div>
+                <a href="{{route('ouraccessories')}}" class="p-5 ">
+                    <div class="text-center text-xl">
+                        Click Here   
+                    </div>
+                </a>
                 <div class="text-center text-xl">
                     To check out cool accessories for animals
                 </div>
@@ -68,8 +74,8 @@
                 The number of euthanized animals could be reduced dramatically if more people adopted pets instead of buying them. When you adopt, you save a loving animal by making them part of your family and open up shelter space for another animal who might desperately need it.
             </div>
             <div class="pl-72">
-                <button type="submit" class="bg-gradient-to-r from-black hover:from-green-400 hover:to-blue-500 text-white px-4 py-3 rounded font-medium w-44">
-                    <a href="{{route('ourlearnmorewhyadopt')}}" class="px-5">see more</a>
+                <button id="seemore" type="submit" class="bg-gradient-to-r from-black hover:from-green-400 hover:to-blue-500 text-white px-4 py-3 rounded font-medium w-44">
+                    <a  href="{{route('ourlearnmorewhyadopt')}}" class="px-5">see more</a>
                 </button>
             </div>
         </div>

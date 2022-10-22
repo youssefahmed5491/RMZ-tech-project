@@ -1,6 +1,6 @@
 @extends('our.ourwelcome')
 @section('content')
-    <div class="flex justify-center bg-gradient-to-r from-green-400 to-blue-500 pt-16">
+    <div class="flex justify-center bg-gradient-to-r from-green-400 to-blue-500 pt-20">
         <div class="  w-1/2">
             <div class="text-3xl text-white pl-2">1. Because you'll save a life.</div>
             <div class="text-xl p-4">

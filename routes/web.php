@@ -3,8 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OurhomeController;
 use App\Http\Controllers\OurloginController;
+use App\Http\Controllers\OurlogoutController;
 use App\Http\Controllers\OursearchController;
+use App\Http\Controllers\OuranimalsController;
 use App\Http\Controllers\OurregisterController;
+use App\Http\Controllers\OuraccessoriesController;
+use App\Http\Controllers\OuruseranimalsController;
+use App\Http\Controllers\OuruseraccessoriesController;
+use App\Http\Controllers\OuradminaccessoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,23 +23,56 @@ use App\Http\Controllers\OurregisterController;
 |
 */
 
- Route::get('/', function () {
-     return view('our.ourwelcome');
- });
+
+ Route::get('/', [OurhomeController::class, 'index'])
+ ->name('ourhome');
 
  Route::get('/ourlearnmorewhyadopt', function () {
     return view('our.ourlearnmorewhyadopt');
 })->name('ourlearnmorewhyadopt');
 
- Route::get('/ourhome', [OurhomeController::class, 'index'])
- ->name('ourhome');
+ Route::get('/ouraboutus', function () {
+    return view('our.ouraboutus');
+})->name('ouraboutus');
+
+
+
+ Route::get('/ouradminaccessories', [OuradminaccessoriesController::class, 'index'])
+ ->name('ouradminaccessories');
+ Route::post('/ouradminaccessories', [OuradminaccessoriesController::class, 'store']);
+
+ Route::get('/ouruseraccessories', [OuruseraccessoriesController::class, 'index'])
+ ->name('ouruseraccessories');
+
+ Route::get('/ouruseranimals', [OuruseranimalsController::class, 'index'])
+ ->name('ouruseranimals');
+
+ Route::get('/ouraccessories', [OuraccessoriesController::class, 'index'])
+ ->name('ouraccessories');
+ Route::delete('/ouraccessories/{accessory}', [OuraccessoriesController::class, 'destroy'])
+ ->name('ouraccessories.destroy');
+ Route::post('/ouraccessories', [OuraccessoriesController::class, 'search'])
+ ->name('ouraccessories');
 
  Route::get('/oursearch', [OursearchController::class, 'index'])
  ->name('oursearch');
+ Route::post('/oursearch', [OursearchController::class, 'search'])
+ ->name('oursearch');
+ Route::post('/oursearch/{animal}', [OursearchController::class, 'store'])
+ ->name('oursearch.store');
+ Route::delete('/oursearch/{animal}', [OursearchController::class, 'destroy'])
+ ->name('oursearch.destroy');
+
+ Route::get('/ouranimals', [OuranimalsController::class, 'index'])
+ ->name('ouranimals');
+ Route::post('/ouranimals', [OuranimalsController::class, 'store']);
 
  Route::get('/ourregister', [OurregisterController::class, 'index'])
  ->name('ourregister');
  Route::post('/ourregister', [OurregisterController::class, 'store']);
+
+ Route::post('/ourlogout', [OurlogoutController::class, 'store'])
+ ->name('ourlogout');
 
  Route::get('/ourlogin', [OurloginController::class, 'index']
  )->name('ourlogin');
