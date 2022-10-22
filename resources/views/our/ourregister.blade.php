@@ -1,7 +1,7 @@
 @extends('our.ourwelcome')
 @section('content')
     <div class='flex justify-center  pt-20 bg-gradient-to-r from-green-400 to-blue-500 h-screen'>
-        <div class='w-3/12 p-4 rounded-lg bg-gray-200 h-2/3'>
+        <div class='w-3/12 p-4 rounded-lg bg-gray-200 h-4/5'>
             <form action="{{route('ourregister')}}" method="post">
                 @csrf
                 <div class="mb-4">
